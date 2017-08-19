@@ -42,7 +42,7 @@ class Products extends Component {
                     modal={true}
                     open={this.props.message.display}
                 >
-                    The actions in this window were passed in as an array of React objects.
+                    {this.props.message.messageText}
                 </Dialog>
                 <Snackbar
                     open={this.props.message.display}
