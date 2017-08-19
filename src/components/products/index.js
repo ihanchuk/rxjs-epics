@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
+import Snackbar from 'material-ui/Snackbar';
 
 class Products extends Component {
     constructor() {
@@ -26,6 +27,12 @@ class Products extends Component {
                 <hr />
 
                 <h1>{this.props.message.messageText}</h1>
+
+                <Snackbar
+                    open={this.props.message.display}
+                    message={this.props.message.messageText}
+                    autoHideDuration={4000}
+                />
             </div>
         </div>)
     }
