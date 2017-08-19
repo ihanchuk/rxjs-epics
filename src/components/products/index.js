@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Snackbar from 'material-ui/RaisedButton';
+import RaisedButton from 'material-ui/RaisedButton';
 
 class Products extends Component {
     constructor() {
         super();
-        this.logProps = () =>{
+        this.logProps = () => {
             console.log(this.props);
         }
     }
@@ -14,10 +13,18 @@ class Products extends Component {
         return (<div>
             Total Products:: {this.props.products.length}
             <div>
-                <button onClick={this.props.onDisplayMessage}> Show Me </button>
-                <button onClick={this.props.onHideClick}> Hide Me </button>
-                <button onClick={this.logProps}> Log me!!! </button>
+                <RaisedButton
+                    onClick={this.props.onDisplayMessage}
+                    label="Show  message"
+                    primary={true}
+                />
+                <RaisedButton
+                    onClick={this.props.onHideClick}
+                    label="Hide  message"
+                    primary={true}
+                />
                 <hr />
+
                 <h1>{this.props.message.messageText}</h1>
             </div>
         </div>)
