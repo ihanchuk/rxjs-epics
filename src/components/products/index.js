@@ -6,19 +6,20 @@ import Snackbar from 'material-ui/RaisedButton';
 class Products extends Component {
     constructor() {
         super();
+        this.logProps = () =>{
+            console.log(this.props);
+        }
     }
     render() {
         return (<div>
             Total Products:: {this.props.products.length}
-            <button onClick={this.props.onDisplayMessage}> Click me </button>
-            <button onClick={this.logProps}> Log me!!! </button>
-            {this.props.message.messageText}
-            <Snackbar
-                open={this.props.message.display}
-                message={this.props.message.displayText}
-                autoHideDuration={4000}
-                onRequestClose={this.handleRequestClose}
-            />
+            <div>
+                <button onClick={this.props.onDisplayMessage}> Show Me </button>
+                <button onClick={this.props.onHideClick}> Hide Me </button>
+                <button onClick={this.logProps}> Log me!!! </button>
+                <hr />
+                <h1>{this.props.message.messageText}</h1>
+            </div>
         </div>)
     }
 }
@@ -33,6 +34,11 @@ const mapDispatchToProps = (dispatch) => {
                     messageText: 'testing dialog display',
                     display: true
                 }
+            });
+        },
+        onHideClick: () => {
+            dispatch({
+                type: 'HIDE_MESSAGES',
             });
         }
     }
