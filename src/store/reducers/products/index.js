@@ -5,7 +5,7 @@ const ProductsReducer = (state, action) => {
         case 'SET_MESSAGE':
             return { ...state, message:{display:true, messageText:action.payload.messageText} }
         case 'HIDE_MESSAGES':
-            return {...state, message:{display:false, messageText:null}}
+            return {...state, message:{display:false, messageText: ''}}
         default:
             return state;
     }
