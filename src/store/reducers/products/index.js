@@ -1,11 +1,16 @@
+import { 
+    PRODUCTS_DISPLAY, 
+    ON_PRODUCTS_FETCHED
+ } from '../../constants';
+
 const ProductsReducer = (state, action) => {
     switch (action.type) {
-        case 'DISPLAY_PRODUCTS':
+        case PRODUCTS_DISPLAY:
             return state.products;
-        case 'SET_MESSAGE':
-            return { ...state, message:{display:true, messageText:action.payload.messageText} }
-        case 'HIDE_MESSAGES':
-            return {...state, message:{display:false, messageText: ''}}
+        case ON_PRODUCTS_FETCHED:
+            console.log("Products fetched");
+            console.table(action.payload);
+            break;
         default:
             return state;
     }

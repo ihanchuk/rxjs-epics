@@ -1,7 +1,15 @@
 import React from 'react';
+import RaisedButton from 'material-ui/RaisedButton';
+import Snackbar from 'material-ui/Snackbar';
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
 
-const ProductForm = ()=>{
-    return(<h1>Product Form Component</h1>);
+const ProductForm = () => {
+    return (
+        <div>
+         <h1>Create new product</h1>
+        </div>
+    );
 }
 
 export default ProductForm;

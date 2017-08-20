@@ -4,13 +4,14 @@ const path = require('path');
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const cors = require('express-cors')
+const cors = require('express-cors');
+const product = require('./db/models/product-model');
 
 mongoose.connect(`mongodb://localhost:27017/agiledb`, {
     useMongoClient: true,
-  });
+});
 
-  const app = express();
+const app = express();
 
 // CORS issue
 app.use(cors({
@@ -24,12 +25,16 @@ app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:htt
 app.use(express.static(path.resolve(__dirname, '..', 'build')));
 
 app.get('/products', (req, res) => {
-  //res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
-  res.json([
-      {name: 'product #1', price: 200, color: 'red'},
-      {name: 'product #2', price: 400, color: 'orange'},
-      {name: 'product #3', price: 200, color: 'green'},
-  ])
+    product.find()
+        .then((products) => {
+            res.json(products);
+        })
+        .catch((err) => {
+            console.log(err);
+            res.json({
+                err: err
+            })
+        })
 });
 
 module.exports = app;
