@@ -6,8 +6,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const cors = require('express-cors')
 
-mongoose.connect(`mongodb://localhost:27017/agiledb`);
-const app = express();
+mongoose.connect(`mongodb://localhost:27017/agiledb`, {
+    useMongoClient: true,
+  });
+
+  const app = express();
 
 // CORS issue
 app.use(cors({
