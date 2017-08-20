@@ -6,14 +6,15 @@ import Main from './components/main';
 import Products from './components/products';
 import ProductForm from './components/product-form';
 
-import './App.css';
+import './css/bootstrap.min.css';
+import './css/App.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="App container">
         <div className="appHeader">
-          <ul className=" nav nav-pills">
+          <ul className=" nav nav-tabs">
             <li role="presentation"><Link to="/">Main Page</Link></li>
             <li role="presentation"><Link to="/products"> Products </Link></li>
             <li role="presentation"><Link to="/newproduct"> New Product </Link></li>
