@@ -1,8 +1,8 @@
 import React from 'react';
-import state from './local-state/state';
 import TextField from 'material-ui/TextField';
 import rules from './validation/validation-rules';
-import {isStringDefined} from '../../../helpers/strings';
+import state from './default-state/state';
+import { isStringDefined } from '../../../helpers/strings';
 import { updateRadio, validateAndUpdate, validateForm } from './helpers/index';
 import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
 import FlatButton from 'material-ui/FlatButton';
@@ -10,23 +10,29 @@ import { connect } from 'react-redux';
 import { mapDispatchToProps, mapStateToProps } from '../../../store/mappers/form';
 import Snackbar from 'material-ui/Snackbar';
 
+
 class Form extends React.Component {
     constructor(props) {
         super(props);
-        this.state = state;
+        this.state = { fields: { ...state.fields }, errors: { ...state.errors } };
+
         this.validation = rules;
         this.validateAndUpdate = validateAndUpdate.bind(this);
         this.updateRadio = updateRadio.bind(this);
         this.saveToServer = () => {
             let validity = validateForm(this.state);
-            if (validity) this.props.onSubmitForm(this.state.fields);
+            if (validity) {
+                this.props.onSubmitForm(this.state.fields);
+                this.setState({ fields: { ...state.fields }, errors: { ...state.errors } });
+            }
         }
     }
 
     render() {
         return (
-            
             <div className="form-container">
+                <div>{JSON.stringify(this.props)}</div>
+                <div>{JSON.stringify(this.state)}</div>
                 <form>
                     <div>
                         <TextField

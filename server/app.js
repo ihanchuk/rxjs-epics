@@ -28,7 +28,7 @@ app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:htt
 app.use(express.static(path.resolve(__dirname, '..', 'build')));
 
 app.get('/products', (req, res) => {
-    product.find()
+    ProductModel.find()
         .then((products) => {
             res.json(products);
         })

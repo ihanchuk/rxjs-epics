@@ -9,9 +9,6 @@ const FormReducer = (state = {}, action) => {
         case SUBMIT_FORM:
             return state;
         case ON_FORM_SUBMITED:
-            console.log("Product Saved");
-            return { message: 'Product saved' }
-        case ON_FORM_SUBMITED:
             return { message: 'Product saved' }
         case ON_FORM_SUBMIT_ERROR:
             return {message:'Something is wrong... Product not saved'}

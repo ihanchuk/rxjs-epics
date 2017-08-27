@@ -1,4 +1,4 @@
-const state =  {
+const state = {
     fields: {
         productName: '',
         productColor: 'gold',
@@ -14,6 +14,6 @@ const state =  {
         productShortDesc: '',
         productLongDesc: '',
     }
-}
+};
 
 export default state;

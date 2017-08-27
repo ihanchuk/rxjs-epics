@@ -4,23 +4,16 @@ const validateAndUpdate = function (e) {
     let key = e.target.id;
     let val = e.target.value;
     let validationResult = this.validation[key].rule(val);
-    let state = {
-        ...this.state
-    };
+    let state = { ...this.state };
     state.fields[key] = val;
-    if (!validationResult) {
-        state.errors[key] = this.validation[key].warning;
-    } else {
-        state.errors[key] = null;
-    }
+    if (!validationResult)  state.errors[key] = this.validation[key].warning;
+    else  state.errors[key] = null;
     this.setState(state);
 }
 
 const updateRadio = function (e) {
     let val = e.target.value;
-    let state = {
-        ...this.state
-    };
+    let state = {...this.state };
     state.fields["productColor"] = val;
     this.setState(state);
 }
