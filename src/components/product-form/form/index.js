@@ -2,11 +2,13 @@ import React from 'react';
 import state from './local-state/state';
 import TextField from 'material-ui/TextField';
 import rules from './validation/validation-rules';
+import {isStringDefined} from '../../../helpers/strings';
 import { updateRadio, validateAndUpdate, validateForm } from './helpers/index';
 import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
 import FlatButton from 'material-ui/FlatButton';
 import { connect } from 'react-redux';
 import { mapDispatchToProps, mapStateToProps } from '../../../store/mappers/form';
+import Snackbar from 'material-ui/Snackbar';
 
 class Form extends React.Component {
     constructor(props) {
@@ -23,6 +25,7 @@ class Form extends React.Component {
 
     render() {
         return (
+            
             <div className="form-container">
                 <form>
                     <div>
@@ -88,6 +91,11 @@ class Form extends React.Component {
                             primary={true} />
                     </div>
                 </form>
+                <Snackbar
+                    open={isStringDefined(this.props.form.message)}
+                    message={this.props.form.message || ''}
+                    autoHideDuration={5000}
+                />
             </div>
         );
     }

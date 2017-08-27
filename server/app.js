@@ -51,27 +51,18 @@ app.post('/products', (req, res) => {
         color: req.body.productColor
     };
     let newProduct = new ProductModel(data);
-
-    // newProduct.save(function (err, data) {
-    //     if (err) return console.log(err);
-    //     console.log(data);
-    //     res.json({
-    //         ok: 500
-    //     });
-    // })
-
-    newProduct.save().then( (res) =>{
+    newProduct.save().then((res) => {
         res.json({
             message: 'Product saved to db',
             statusCode: 200
         });
     })
-    .catch( (err) =>{
-        res.json({
-            message: 'Failed saving to DB',
-            statusCode: 500
+        .catch((err) => {
+            res.json({
+                message: 'Failed saving to DB',
+                statusCode: 500
+            });
         });
-    });
 
 });
 
