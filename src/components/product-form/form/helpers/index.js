@@ -3,13 +3,13 @@ import rules from '../validation/validation-rules';
 const validateAndUpdate = function (e) {
     let key = e.target.id;
     let val = e.target.value;
-    let validationResult = this.validationRulesAndMessages[key].rule.test(val);
+    let validationResult = this.validation[key].rule(val);
     let state = {
         ...this.state
     };
     state.fields[key] = val;
     if (!validationResult) {
-        state.errors[key] = this.validationRulesAndMessages[key].warning;
+        state.errors[key] = this.validation[key].warning;
     } else {
         state.errors[key] = null;
     }
@@ -31,7 +31,7 @@ const validateForm = (state) => {
     fields.forEach((el, index) => {
         let val = state.fields[el];
         let rule = rules[el];
-        if (rule && !rule.rule.test(val)) formValidity = false;
+        if (rule && !rule.rule(val)) formValidity = false;
     });
     return formValidity;
 }

@@ -6,7 +6,7 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const cors = require('express-cors');
-const product = require('./db/models/product-model');
+const ProductModel = require('./db/models/product-model');
 
 mongoose.connect(`mongodb://localhost:27017/agiledb`, {
     useMongoClient: true,
@@ -39,10 +39,40 @@ app.get('/products', (req, res) => {
         })
 });
 
-app.post('/products', (req, res) =>{
-    res.json({
-        result: "ok"
+app.post('/products', (req, res) => {
+    let data = {
+        meta: {
+            img: req.body.productUrl,
+            shortDescription: req.body.productShortDesc,
+            longDescription: req.body.productLongDesc,
+            productName: req.body.productName,
+        },
+        price: req.body.productPrice,
+        color: req.body.productColor
+    };
+    let newProduct = new ProductModel(data);
+
+    // newProduct.save(function (err, data) {
+    //     if (err) return console.log(err);
+    //     console.log(data);
+    //     res.json({
+    //         ok: 500
+    //     });
+    // })
+
+    newProduct.save().then( (res) =>{
+        res.json({
+            message: 'Product saved to db',
+            statusCode: 200
+        });
     })
+    .catch( (err) =>{
+        res.json({
+            message: 'Failed saving to DB',
+            statusCode: 500
+        });
+    });
+
 });
 
 module.exports = app;

@@ -12,11 +12,12 @@ class Form extends React.Component {
     constructor(props) {
         super(props);
         this.state = state;
-        this.validationRulesAndMessages = rules;
+        this.validation = rules;
         this.validateAndUpdate = validateAndUpdate.bind(this);
         this.updateRadio = updateRadio.bind(this);
-        this.saveToServer = () =>{
-            if(validateForm(this.state)) this.props.onSubmitForm(this.state.fields);
+        this.saveToServer = () => {
+            let validity = validateForm(this.state);
+            if (validity) this.props.onSubmitForm(this.state.fields);
         }
     }
 
@@ -55,10 +56,10 @@ class Form extends React.Component {
                             onChange={this.updateRadio}
                             id="productColor"
                         >
-                            <RadioButton  value="gold"  label="Gold" />
+                            <RadioButton value="gold" label="Gold" />
                             <RadioButton value="black" label="Black" />
                             <RadioButton value="silver" label="Silver" />
-                            <RadioButton  value="red" label="Red" />
+                            <RadioButton value="red" label="Red" />
                             <RadioButton value="Green" label="Green" />
                         </RadioButtonGroup>
                     </div>
@@ -82,8 +83,8 @@ class Form extends React.Component {
                     </div>
                     <div>
                         <FlatButton
-                            label="Save product" 
-                            onClick = {this.saveToServer}
+                            label="Save product"
+                            onClick={this.saveToServer}
                             primary={true} />
                     </div>
                 </form>
@@ -92,4 +93,4 @@ class Form extends React.Component {
     }
 }
 
-export default  connect(mapStateToProps, mapDispatchToProps)(Form);
+export default connect(mapStateToProps, mapDispatchToProps)(Form);

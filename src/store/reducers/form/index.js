@@ -6,8 +6,7 @@ import {
 const FormReducer = (state = {}, action) => {
     switch (action.type) {
         case SUBMIT_FORM:
-            return { action: 'Saving form', error: null, message: 'Sending data to server' }
-            return state;
+            return  state;
         default:
             return state;
     }

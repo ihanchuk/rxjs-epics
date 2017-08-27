@@ -22,12 +22,14 @@
   },
   "devDependencies": {
     "morgan": "^1.8.2",
+    "nodemon": "^1.11.0",
     "prop-types": "^15.5.10"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "server": "nodemon server"
   }
 }

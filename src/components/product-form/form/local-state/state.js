@@ -2,14 +2,14 @@ const state =  {
     fields: {
         productName: '',
         productColor: 'gold',
-        productURL: '',
+        productUrl: '',
         productPrice: '',
         productShortDesc: '',
         productLongDesc: '',
     },
     errors: {
         productName: '',
-        productURL: '',
+        productUrl: '',
         productPrice: '',
         productShortDesc: '',
         productLongDesc: '',
