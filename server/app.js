@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
+const bodyParser = require('body-parser')
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
@@ -20,6 +21,8 @@ app.use(cors({
     ]
 }));
 
+app.use(bodyParser.json());
+
 // Setup logger
 app.use(morgan(':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] :response-time ms'));
 app.use(express.static(path.resolve(__dirname, '..', 'build')));
@@ -30,11 +33,16 @@ app.get('/products', (req, res) => {
             res.json(products);
         })
         .catch((err) => {
-            console.log(err);
             res.json({
                 err: err
             })
         })
+});
+
+app.post('/products', (req, res) =>{
+    res.json({
+        result: "ok"
+    })
 });
 
 module.exports = app;

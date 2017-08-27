@@ -1,19 +1,10 @@
-import {PRODUCTS_DISPLAY, ON_PRODUCTS_FETCHED} from '../../constants';
+import { PRODUCTS_DISPLAY } from '../../constants';
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onDisplayMessage: () => {
-            dispatch({
-                type: 'SET_MESSAGE',
-                payload:
-                {
-                    messageText: 'testing dialog display',
-                    display: true
-                }
-            });
-        },
-        onComponentMounted: () =>{
-            dispatch({ type: PRODUCTS_DISPLAY});
+        onDisplayMessage: () => {  dispatch({type:'ON_PRODUCTS_FETCHNG'}); },
+        onComponentMounted: () => {
+            dispatch({ type: PRODUCTS_DISPLAY });
         },
         onHideClick: () => {
             dispatch({
