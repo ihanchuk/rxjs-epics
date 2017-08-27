@@ -51,19 +51,9 @@ app.post('/products', (req, res) => {
         color: req.body.productColor
     };
     let newProduct = new ProductModel(data);
-    newProduct.save().then((res) => {
-        res.json({
-            message: 'Product saved to db',
-            statusCode: 200
-        });
-    })
-        .catch((err) => {
-            res.json({
-                message: 'Failed saving to DB',
-                statusCode: 500
-            });
-        });
-
+    newProduct.save()
+    .then(saved => res.json({message:'Saved product'}))
+    .catch(err => res.json({message:'Failed saving product'}));
 });
 
 module.exports = app;

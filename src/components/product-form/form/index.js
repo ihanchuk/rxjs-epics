@@ -1,15 +1,16 @@
 import React from 'react';
-import TextField from 'material-ui/TextField';
+
 import rules from './validation/validation-rules';
 import state from './default-state/state';
 import { isStringDefined } from '../../../helpers/strings';
+
 import { updateRadio, validateAndUpdate, validateForm } from './helpers/index';
 import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
+import TextField from 'material-ui/TextField';
+import Snackbar from 'material-ui/Snackbar';
 import FlatButton from 'material-ui/FlatButton';
 import { connect } from 'react-redux';
 import { mapDispatchToProps, mapStateToProps } from '../../../store/mappers/form';
-import Snackbar from 'material-ui/Snackbar';
-
 
 class Form extends React.Component {
     constructor(props) {

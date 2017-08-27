@@ -3,6 +3,7 @@ import ProductsReducer from './reducers/products';
 import FormReducer from './reducers/form';
 import fetchProductsEpic from './epics/fetch-products-epic';
 import saveProductEpic from './epics/save-product';
+import { compose } from 'redux';
 
 import {
     createStore,
@@ -32,10 +33,12 @@ let reducers = combineReducers({
     form: FormReducer
 })
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 let store = createStore(
     reducers,
     initialState,
-    applyMiddleware(epicMiddleware)
+    composeEnhancers(applyMiddleware(epicMiddleware))
 );
 window.store = store;
 
