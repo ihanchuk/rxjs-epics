@@ -12,7 +12,8 @@ const saveProductEpic = (action$, $store) =>
     action$.ofType(SUBMIT_FORM)
         .mergeMap(action => ajax.post( 'http://localhost:9000/products', action.payload,
              {'Content-Type': 'application/json' }))
-                .map(response =>formSavedAction(response) )
+                .map(response =>{
+                    formSavedAction(response);} )
                 .catch( err=>{
                     $store.dispatch( {type: ON_FORM_SUBMIT_ERROR})
                 })
