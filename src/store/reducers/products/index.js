@@ -16,7 +16,6 @@ const ProductsReducer = (state = [], action) => {
             return state;
         case ON_PRODUCTS_FETCHED:
             return [...action.payload]
-        //return { products: action.payload }
         default:
             return state;
     }

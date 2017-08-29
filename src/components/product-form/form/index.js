@@ -32,8 +32,6 @@ class Form extends React.Component {
     render() {
         return (
             <div className="form-container">
-                <div>{JSON.stringify(this.props)}</div>
-                <div>{JSON.stringify(this.state)}</div>
                 <form>
                     <div>
                         <TextField
