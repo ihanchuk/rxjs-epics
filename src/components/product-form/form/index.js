@@ -8,9 +8,11 @@ import { updateRadio, validateAndUpdate, validateForm } from './helpers/index';
 import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
 import TextField from 'material-ui/TextField';
 import Snackbar from 'material-ui/Snackbar';
-import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
 import { connect } from 'react-redux';
 import { mapDispatchToProps, mapStateToProps } from '../../../store/mappers/form';
+
+import './style.css';
 
 class Form extends React.Component {
     constructor(props) {
@@ -39,7 +41,8 @@ class Form extends React.Component {
                             errorText={this.state.errors.productName}
                             onChange={this.validateAndUpdate}
                             value={this.state.fields.productName}
-                            floatingLabelText="Product name" />
+                            floatingLabelText="product name"
+                            fullWidth={true}/>
                     </div>
                     <div>
                         <TextField
@@ -47,7 +50,8 @@ class Form extends React.Component {
                             errorText={this.state.errors.productUrl}
                             onChange={this.validateAndUpdate}
                             value={this.state.fields.productUrl}
-                            floatingLabelText="product URL" />
+                            floatingLabelText="product image URL"
+                            fullWidth={true} />
                     </div>
                     <div>
                         <TextField
@@ -55,9 +59,10 @@ class Form extends React.Component {
                             errorText={this.state.errors.productPrice}
                             onChange={this.validateAndUpdate}
                             value={this.state.fields.productPrice}
-                            floatingLabelText="product price" />
+                            floatingLabelText="product price"
+                            fullWidth={true} />
                     </div>
-                    <div>
+                    <div className="radioButtons">
                         <RadioButtonGroup
                             name="shipSpeed"
                             defaultSelected={this.state.fields.productColor}
@@ -78,7 +83,8 @@ class Form extends React.Component {
                             onChange={this.validateAndUpdate}
                             multiLine={true}
                             value={this.state.fields.productShortDesc}
-                            floatingLabelText="Short Description" />
+                            floatingLabelText="short description"
+                            fullWidth={true}  />
                     </div>
                     <div>
                         <TextField
@@ -87,10 +93,11 @@ class Form extends React.Component {
                             errorText={this.state.errors.productLongDesc}
                             onChange={this.validateAndUpdate}
                             value={this.state.fields.productLongDesc}
-                            floatingLabelText="Long Description" />
+                            floatingLabelText="long description"
+                            fullWidth={true}  />
                     </div>
                     <div>
-                        <FlatButton
+                        <RaisedButton
                             label="Save product"
                             onClick={this.saveToServer}
                             primary={true} />

@@ -1,0 +1,40 @@
+.singleProduct{
+    div {
+        margin: 10px 0 5px 0;
+    }
+   .productName{
+       span{
+        font-size: 20px;
+       }
+        
+    }
+    .productColor{
+        span.prop{
+            font-size:20px;
+        }
+        span.propValue{
+            width:20px;
+            height: 20px;
+            border-radius: 50%;
+            display:inline-block;
+            margin-left:10px;
+        }
+    } 
+    .imgContainer{
+        overflow: hidden;
+        max-height: 400px;
+        img{
+            max-height:300px;
+            margin:0 auto;
+        }
+    }
+    .price{
+        span.prop{
+            font-size:20px;
+        }
+        span.val{
+            font-size:19px;
+            font-weight:bold;
+        }
+    }
+}

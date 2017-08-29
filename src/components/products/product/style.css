@@ -1,0 +1,29 @@
+.singleProduct div {
+  margin: 10px 0 5px 0; }
+
+.singleProduct .productName span {
+  font-size: 20px; }
+
+.singleProduct .productColor span.prop {
+  font-size: 20px; }
+
+.singleProduct .productColor span.propValue {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 10px; }
+
+.singleProduct .imgContainer {
+  overflow: hidden;
+  max-height: 400px; }
+  .singleProduct .imgContainer img {
+    max-height: 300px;
+    margin: 0 auto; }
+
+.singleProduct .price span.prop {
+  font-size: 20px; }
+
+.singleProduct .price span.val {
+  font-size: 19px;
+  font-weight: bold; }

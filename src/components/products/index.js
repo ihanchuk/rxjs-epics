@@ -27,7 +27,7 @@ class Products extends React.PureComponent {
         let products = this.props.products;
         if (products.length > 0) {
             return (
-                <div className="products-area">
+                <div className="products-area container">
                     {products.map((product, index) => <Product key={index} product={product} />)}
                 </div>)
         }

@@ -7,7 +7,7 @@ import Products from './components/products';
 import ProductForm from './components/product-form';
 
 import './css/bootstrap.min.css';
-import './css/App.css';
+import './css/app.css';
 
 class App extends Component {
   render() {

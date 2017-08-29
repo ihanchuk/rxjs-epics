@@ -27,7 +27,7 @@ var Product = new Schema({
     },
     color: {
         type: String,
-        enum: ['red', 'green', 'black', 'sliver', 'gold']
+        enum: ['red', 'green', 'black', 'silver', 'gold']
     },
 });
 
